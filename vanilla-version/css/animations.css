@@ -1,0 +1,174 @@
+/* css/animations.css */
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(212, 168, 83, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(212, 168, 83, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Smoke effect */
+@keyframes smoke {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.1);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(-60px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.smoke-particle {
+  animation: smoke 4s ease-out infinite;
+}
+
+/* --- Javascript Triggered Transitions (Replaces Framer Motion) --- */
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-down.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.zoom-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-800 { transition-delay: 800ms; }
+.delay-900 { transition-delay: 900ms; }
+.delay-1000 { transition-delay: 1000ms; }
+
+/* Custom Hero Background Pulse (replaces Framer animate scale/opacity) */
+@keyframes hero-bg-pulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+.animate-hero-bg {
+  animation: hero-bg-pulse 5s ease-in-out infinite;
+}
+
+/* Custom Hero Burger Float (replaces Framer y, rotate, scale, filter) */
+@keyframes hero-burger-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1.02);
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));
+  }
+  25% {
+    transform: translateY(-12.5px) rotate(1.5deg) scale(1.035);
+  }
+  50% {
+    transform: translateY(-25px) rotate(-1deg) scale(1.05);
+    filter: drop-shadow(0px 35px 45px rgba(0,0,0,0.3));
+  }
+  75% {
+    transform: translateY(-12.5px) rotate(0deg) scale(1.035);
+  }
+}
+.animate-hero-burger {
+  animation: hero-burger-float 5s ease-in-out infinite;
+}
+
+/* Scroll indicator animation */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+.animate-scroll-bounce {
+  animation: scroll-bounce 2s infinite;
+}
+
+@keyframes scroll-dot {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+.animate-scroll-dot {
+  animation: scroll-dot 2s infinite;
+}

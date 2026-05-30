@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="bg-background">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Burger | Premium Artisanal Burgers</title>
+  <meta name="description" content="Juicy handcrafted burgers made with premium ingredients, smoky flavors and an unforgettable experience.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden min-h-screen bg-background text-foreground">
+
+  <div class="noise-overlay"></div>
+
+  <main>
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent py-6 fade-in-down visible">
+      <div class="container mx-auto px-6 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="#home" class="text-2xl font-bold tracking-tight hover:scale-105 active:scale-95 transition-transform">
+          <span class="text-foreground">Black</span>
+          <span class="gradient-text"> Burger</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#home" class="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group fade-in-down visible">
+            Home
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="cardapio.html" class="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group fade-in-down visible delay-100">
+            Cardápio
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#features" class="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group fade-in-down visible delay-200">
+            Diferenciais
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#delivery" class="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group fade-in-down visible delay-300">
+            Delivery
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#contact" class="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group fade-in-down visible delay-400">
+            Contato
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </div>
+
+        <!-- CTA Button -->
+        <button class="hidden md:block px-6 py-2.5 bg-primary text-primary-foreground font-semibold rounded-full glow-gold hover:glow-gold-strong transition-all duration-300 hover:scale-105 active:scale-95 zoom-in visible delay-500">
+          Pedir Agora
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-foreground p-2 active:scale-90 transition-transform">
+          <div id="mobile-menu-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </div>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden overflow-hidden glass transition-all duration-300" style="height: 0; opacity: 0;">
+        <div class="container mx-auto px-6 py-4 flex flex-col gap-4">
+          <a href="#home" class="mobile-menu-item text-lg font-medium text-muted-foreground hover:text-foreground transition-all duration-300 -translate-x-5 opacity-0">Home</a>
+          <a href="#menu" class="mobile-menu-item text-lg font-medium text-muted-foreground hover:text-foreground transition-all duration-300 -translate-x-5 opacity-0">Cardápio</a>
+          <a href="#features" class="mobile-menu-item text-lg font-medium text-muted-foreground hover:text-foreground transition-all duration-300 -translate-x-5 opacity-0">Diferenciais</a>
+          <a href="#delivery" class="mobile-menu-item text-lg font-medium text-muted-foreground hover:text-foreground transition-all duration-300 -translate-x-5 opacity-0">Delivery</a>
+          <a href="#contact" class="mobile-menu-item text-lg font-medium text-muted-foreground hover:text-foreground transition-all duration-300 -translate-x-5 opacity-0">Contato</a>
+          <button class="mobile-menu-item mt-4 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-full glow-gold transition-all duration-300 -translate-x-5 opacity-0">
+            Pedir Agora
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-background">
+      
+      <!-- Subtle glow pulsing behind the burger -->
+      <div class="absolute top-1/2 left-1/2 md:left-[70%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/40 rounded-full blur-[140px] pointer-events-none z-0 animate-hero-bg"></div>
+
+      <!-- Floating Burger Image -->
+      <div class="absolute -inset-[5%] z-0 origin-center animate-hero-burger"
+        style="background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-27%20at%2017.24.40%20%281%29-h5Rl9X4lTNeYa1MmxYdq2jcxxZbWXg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+      </div>
+
+      <!-- Dark overlay for better text readability -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent z-10 pointer-events-none"></div>
+      
+      <!-- Additional gradient from bottom -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 z-10 pointer-events-none"></div>
+
+      <!-- Decorative glow effects -->
+      <div class="absolute top-20 left-10 w-96 h-96 bg-primary/30 rounded-full blur-[120px] z-10 pointer-events-none fade-in visible"></div>
+
+      <div class="container mx-auto px-6 lg:px-12 relative z-10 pt-24">
+        <div class="max-w-2xl">
+          
+          <!-- Small tagline -->
+          <p class="text-primary font-medium tracking-[0.3em] uppercase text-sm mb-4 fade-in-up visible delay-300">
+            Escolha o Seu Favorito
+          </p>
+
+          <!-- Main Hero Title -->
+          <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.85] tracking-tight fade-in-up visible delay-500">
+            <span class="text-foreground block">BLACK</span>
+            <span class="gradient-text text-glow block">BURGER</span>
+          </h1>
+
+          <!-- Secondary title -->
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-primary italic mt-8 mb-10 fade-in-up visible delay-700">
+            Sabor Premium
+          </h2>
+
+          <!-- Description -->
+          <p class="text-muted-foreground text-base md:text-lg max-w-md mb-12 leading-relaxed fade-in-up visible delay-900">
+            Convidamos você ao lugar onde a felicidade nasce — nossa hamburgueria artesanal! 
+            Criamos não apenas hambúrgueres, mas momentos reais de alegria que ficam com você 
+            na forma das memórias mais saborosas.
+          </p>
+
+          <!-- CTA Button -->
+          <button class="px-10 py-4 bg-primary text-primary-foreground font-bold text-base rounded-full glow-gold hover:glow-gold-strong transition-all duration-300 uppercase tracking-wider hover:scale-105 active:scale-95 zoom-in visible" style="transition-delay: 1.1s;">
+            Pedir Agora
+          </button>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 fade-in visible" style="transition-delay: 2s;">
+        <div class="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center pt-2 animate-scroll-bounce">
+          <div class="w-1.5 h-1.5 bg-primary rounded-full animate-scroll-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Completo -->
+    <section id="menu" class="py-32 relative overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0B0B0B] to-[#101010]"></div>
+      
+      <!-- Decorative elements -->
+      <div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] fade-in"></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16 fade-in-up">
+          <p class="text-primary font-medium tracking-[0.3em] uppercase text-sm mb-4 fade-in delay-200">
+            Hambúrgueres artesanais preparados com ingredientes selecionados e muito sabor.
+          </p>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+            Nosso <span class="gradient-text">Cardápio</span>
+          </h2>
+        </div>
+
+        <!-- Burgers Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Burger 1 -->
+          <div class="group relative fade-in-up delay-100 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+            <div class="glass rounded-2xl p-6 h-full flex flex-col transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_10px_30px_-15px_rgba(251,191,36,0.3)] bg-background/40 backdrop-blur-md">
+              <div class="mb-6 overflow-hidden rounded-xl aspect-square w-full relative bg-black/20">
+                <img src="assets/images/classic-black-burger.png" alt="Classic Burger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+              </div>
+              <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Classic Burger</h3>
+              <p class="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">Hambúrguer artesanal, cheddar, alface, tomate e molho especial.</p>
+              <div class="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+                <span class="text-primary font-bold text-xl">R$ 29,90</span>
+                <button class="px-5 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)] active:scale-95">
+                  Pedir Agora
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Burger 2 -->
+          <div class="group relative fade-in-up delay-200 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+            <div class="glass rounded-2xl p-6 h-full flex flex-col transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_10px_30px_-15px_rgba(251,191,36,0.3)] bg-background/40 backdrop-blur-md">
+              <div class="mb-6 overflow-hidden rounded-xl aspect-square w-full relative bg-black/20">
+                <img src="assets/images/bacon-supreme.png" alt="Bacon Supreme" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+              </div>
+              <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Bacon Supreme</h3>
+              <p class="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">Hambúrguer artesanal, cheddar duplo e bacon crocante.</p>
+              <div class="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+                <span class="text-primary font-bold text-xl">R$ 34,90</span>
+                <button class="px-5 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)] active:scale-95">
+                  Pedir Agora
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Burger 3 -->
+          <div class="group relative fade-in-up delay-300 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+            <div class="glass rounded-2xl p-6 h-full flex flex-col transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_10px_30px_-15px_rgba(251,191,36,0.3)] bg-background/40 backdrop-blur-md">
+              <div class="mb-6 overflow-hidden rounded-xl aspect-square w-full relative bg-black/20">
+                <img src="assets/images/double-smash.png" alt="Double Smash" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+              </div>
+              <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Double Smash</h3>
+              <p class="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">Dois smash burgers, cheddar e molho especial.</p>
+              <div class="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+                <span class="text-primary font-bold text-xl">R$ 36,90</span>
+                <button class="px-5 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)] active:scale-95">
+                  Pedir Agora
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Burger 4 -->
+          <div class="group relative fade-in-up delay-400 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+            <div class="glass rounded-2xl p-6 h-full flex flex-col transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_10px_30px_-15px_rgba(251,191,36,0.3)] bg-background/40 backdrop-blur-md">
+              <div class="mb-6 overflow-hidden rounded-xl aspect-square w-full relative bg-black/20">
+                <img src="/vanilla-version/assets/images/monster-burger.png" alt="Monster Burger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+              </div>
+              <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Monster Burger</h3>
+              <p class="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">Hambúrguer duplo, bacon, onion rings e cheddar.</p>
+              <div class="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+                <span class="text-primary font-bold text-xl">R$ 42,90</span>
+                <button class="px-5 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)] active:scale-95">
+                  Pedir Agora
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Burger 5 -->
+          <div class="group relative fade-in-up delay-100 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+            <div class="glass rounded-2xl p-6 h-full flex flex-col transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_10px_30px_-15px_rgba(251,191,36,0.3)] bg-background/40 backdrop-blur-md">
+              <div class="mb-6 overflow-hidden rounded-xl aspect-square w-full relative bg-black/20">
+                <img src="assets/images/smoked-bbq-burger.png" alt="BBQ Burger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+              </div>
+              <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">BBQ Burger</h3>
+              <p class="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">Hambúrguer artesanal, queijo prato, bacon e molho barbecue.</p>
+              <div class="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+                <span class="text-primary font-bold text-xl">R$ 35,90</span>
+                <button class="px-5 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)] active:scale-95">
+                  Pedir Agora
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Burger 6 -->
+          <div class="group relative fade-in-up delay-200 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+            <div class="glass rounded-2xl p-6 h-full flex flex-col transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_10px_30px_-15px_rgba(251,191,36,0.3)] bg-background/40 backdrop-blur-md">
+              <div class="mb-6 overflow-hidden rounded-xl aspect-square w-full relative bg-black/20">
+                <img src="/vanilla-version/assets/images/chickenburger.png" alt="Chicken Burger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+              </div>
+              <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Chicken Burger</h3>
+              <p class="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">Frango empanado, alface, tomate e maionese da casa.</p>
+              <div class="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+                <span class="text-primary font-bold text-xl">R$ 31,90</span>
+                <button class="px-5 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)] active:scale-95">
+                  Pedir Agora
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Burger 7 -->
+          <div class="group relative fade-in-up delay-300 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+            <div class="glass rounded-2xl p-6 h-full flex flex-col transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_10px_30px_-15px_rgba(251,191,36,0.3)] bg-background/40 backdrop-blur-md">
+              <div class="mb-6 overflow-hidden rounded-xl aspect-square w-full relative bg-black/20">
+                <img src="assets/images/veggie-burger.png" alt="Veggie Burger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+              </div>
+              <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Veggie Burger</h3>
+              <p class="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">Hambúrguer vegetal, queijo, rúcula e molho especial.</p>
+              <div class="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+                <span class="text-primary font-bold text-xl">R$ 32,90</span>
+                <button class="px-5 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)] active:scale-95">
+                  Pedir Agora
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Burger 8 -->
+          <div class="group relative fade-in-up delay-400 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+            <div class="glass rounded-2xl p-6 h-full flex flex-col transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_10px_30px_-15px_rgba(251,191,36,0.3)] bg-background/40 backdrop-blur-md">
+              <div class="mb-6 overflow-hidden rounded-xl aspect-square w-full relative bg-black/20">
+                <img src="assets/images/triple-cheddar.png" alt="Triple Cheddar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+              </div>
+              <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Triple Cheddar</h3>
+              <p class="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">Três camadas de cheddar cremoso e hambúrguer artesanal.</p>
+              <div class="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+                <span class="text-primary font-bold text-xl">R$ 39,90</span>
+                <button class="px-5 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)] active:scale-95">
+                  Pedir Agora
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="features" class="py-32 relative overflow-hidden">
+      <!-- Background gradient -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#101010] to-[#0B0B0B]"></div>
+      
+      <!-- Decorative blur -->
+      <div class="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[150px] fade-in"></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-20 fade-in-up">
+          <p class="text-primary font-medium tracking-[0.3em] uppercase text-sm mb-4 fade-in delay-200">
+            Por Que Nos Escolher
+          </p>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+            A <span class="gradient-text">Diferença</span> Black Burger
+          </h2>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Feature 1 -->
+          <div class="text-center group fade-in-up delay-100">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-primary"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">Ingredientes Frescos</h3>
+            <p class="text-muted-foreground leading-relaxed">Selecionamos apenas os melhores ingredientes locais e orgânicos para nossos burgers.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="text-center group fade-in-up delay-200">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-primary"><path d="M10 17h4V5H2v12h3"/><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5"/><path d="M14 17h1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">Entrega Rápida</h3>
+            <p class="text-muted-foreground leading-relaxed">Seu burger chega quentinho em até 30 minutos na sua porta.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="text-center group fade-in-up delay-300">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-primary"><path d="M17 21v-4a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v4"/><path d="M4.53 11.231A5.006 5.006 0 0 1 5 6a5 5 0 0 1 8.232-3.842 5 5 0 0 1 7.238 6.324A5.004 5.004 0 0 1 19.47 11.23"/><line x1="8" x2="14" y1="17" y2="17"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">Feito à Mão</h3>
+            <p class="text-muted-foreground leading-relaxed">Cada burger é preparado artesanalmente por nossos chefs especializados.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="text-center group fade-in-up delay-400">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-primary"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">Qualidade Premium</h3>
+            <p class="text-muted-foreground leading-relaxed">Carnes selecionadas e blend exclusivo que derrete na boca.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="delivery" class="py-32 relative overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 bg-[#0A0A0A]"></div>
+      
+      <!-- Cinematic gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-transparent to-[#0A0A0A]"></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          
+          <!-- Image with parallax -->
+          <div class="relative order-2 lg:order-1 parallax" data-speed="0.15">
+            <div class="relative zoom-in">
+              <!-- Glow effect -->
+              <div class="absolute inset-0 bg-primary/20 blur-[60px] rounded-full scale-75"></div>
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-27%20at%2017.24.40%20%281%29-h5Rl9X4lTNeYa1MmxYdq2jcxxZbWXg.jpeg" 
+                   alt="Experiência Black Burger" 
+                   class="relative z-10 drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)] rounded-2xl w-full h-auto max-w-[500px] mx-auto" />
+            </div>
+          </div>
+
+          <!-- Text Content -->
+          <div class="order-1 lg:order-2 fade-in-right delay-300">
+            <p class="text-primary font-medium tracking-[0.3em] uppercase text-sm mb-6 fade-in delay-400">
+              Uma Experiência Única
+            </p>
+            
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+              Mais Que Um <span class="gradient-text">Burger</span>,<br />Uma Obra de Arte
+            </h2>
+            
+            <p class="text-muted-foreground text-lg leading-relaxed mb-8">
+              Cada mordida é uma explosão de sabores cuidadosamente elaborados. 
+              Nossa paixão pela perfeição se reflete em cada detalhe, desde a seleção 
+              dos ingredientes até a apresentação final do seu burger.
+            </p>
+
+            <div class="grid grid-cols-3 gap-6 mb-10">
+              <div class="text-center fade-in-up delay-600">
+                <p class="text-3xl md:text-4xl font-bold gradient-text">10K+</p>
+                <p class="text-muted-foreground text-sm mt-1">Clientes Felizes</p>
+              </div>
+              <div class="text-center fade-in-up delay-700">
+                <p class="text-3xl md:text-4xl font-bold gradient-text">50+</p>
+                <p class="text-muted-foreground text-sm mt-1">Sabores Únicos</p>
+              </div>
+              <div class="text-center fade-in-up delay-800">
+                <p class="text-3xl md:text-4xl font-bold gradient-text">5★</p>
+                <p class="text-muted-foreground text-sm mt-1">Avaliação Média</p>
+              </div>
+            </div>
+
+            <button class="px-10 py-4 bg-primary text-primary-foreground font-bold rounded-full glow-gold hover:glow-gold-strong transition-all duration-300 hover:scale-105 active:scale-95 fade-in delay-900">
+              Fazer Pedido
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-32 relative overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0B0B0B] to-[#0F0F0F]"></div>
+      
+      <!-- Decorative blur -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] fade-in"></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16 fade-in-up">
+          <p class="text-primary font-medium tracking-[0.3em] uppercase text-sm mb-4 fade-in delay-200">
+            Depoimentos
+          </p>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+            O Que Dizem <span class="gradient-text">Nossos Clientes</span>
+          </h2>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <!-- Testimonial 1 -->
+          <div class="glass rounded-2xl p-8 relative group fade-in-up delay-200 hover:-translate-y-2 transition-transform duration-300">
+            <!-- Quote decoration -->
+            <div class="absolute top-4 right-4 text-6xl text-primary/10 font-serif">"</div>
+            
+            <!-- Stars -->
+            <div class="flex gap-1 mb-4">
+              <div class="zoom-in delay-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in delay-[900ms]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in delay-1000"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1100ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1200ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            </div>
+
+            <!-- Content -->
+            <p class="text-muted-foreground leading-relaxed mb-6">"O melhor burger artesanal que já experimentei! A carne simplesmente derrete na boca. Voltarei com certeza!"</p>
+
+            <!-- Author -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">CS</div>
+              <div>
+                <p class="font-semibold text-foreground">Carlos Silva</p>
+                <p class="text-sm text-muted-foreground">Food Blogger</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="glass rounded-2xl p-8 relative group fade-in-up delay-400 hover:-translate-y-2 transition-transform duration-300">
+            <!-- Quote decoration -->
+            <div class="absolute top-4 right-4 text-6xl text-primary/10 font-serif">"</div>
+            
+            <!-- Stars -->
+            <div class="flex gap-1 mb-4">
+              <div class="zoom-in" style="transition-delay: 1000ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1100ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1200ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1300ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1400ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            </div>
+
+            <!-- Content -->
+            <p class="text-muted-foreground leading-relaxed mb-6">"Black Burger é meu lugar favorito. O blend de carnes é incomparável e o atendimento é excepcional."</p>
+
+            <!-- Author -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AR</div>
+              <div>
+                <p class="font-semibold text-foreground">Ana Rodrigues</p>
+                <p class="text-sm text-muted-foreground">Cliente Fiel</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="glass rounded-2xl p-8 relative group fade-in-up delay-600 hover:-translate-y-2 transition-transform duration-300">
+            <!-- Quote decoration -->
+            <div class="absolute top-4 right-4 text-6xl text-primary/10 font-serif">"</div>
+            
+            <!-- Stars -->
+            <div class="flex gap-1 mb-4">
+              <div class="zoom-in" style="transition-delay: 1200ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1300ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1400ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1500ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="zoom-in" style="transition-delay: 1600ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            </div>
+
+            <!-- Content -->
+            <p class="text-muted-foreground leading-relaxed mb-6">"Como cozinheiro, reconheço qualidade quando vejo. Os ingredientes são premium e a execução é perfeita."</p>
+
+            <!-- Author -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">PM</div>
+              <div>
+                <p class="font-semibold text-foreground">Pedro Mendes</p>
+                <p class="text-sm text-muted-foreground">Chef Amador</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-32 relative overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#111111] to-[#0F0F0F]"></div>
+      
+      <!-- Decorative elements -->
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-[120px] fade-in"></div>
+      <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-[100px] fade-in delay-300"></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center max-w-4xl mx-auto fade-in-up">
+          <p class="text-primary font-medium tracking-[0.3em] uppercase text-sm mb-6 fade-in delay-300">
+            Não Perca Tempo
+          </p>
+          
+          <h2 class="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+            Pronto Para Provar o <span class="gradient-text text-glow">Melhor Burger</span> da Cidade?
+          </h2>
+          
+          <p class="text-muted-foreground text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+            Faça seu pedido agora e descubra por que somos a hamburgueria mais premiada da região. 
+            Entrega rápida e sabor incomparável.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center zoom-in delay-500">
+            <button class="px-12 py-5 bg-primary text-primary-foreground font-bold text-lg rounded-full glow-gold hover:glow-gold-strong transition-all duration-300 uppercase tracking-wider hover:scale-105 active:scale-95">
+              Pedir Agora
+            </button>
+            <button class="px-12 py-5 border-2 border-primary/50 text-primary font-bold text-lg rounded-full hover:bg-primary/10 transition-all duration-300 uppercase tracking-wider hover:scale-105 active:scale-95">
+              Ver Cardápio
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="relative pt-20 pb-8 overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 bg-[#080808]"></div>
+      
+      <!-- Top border glow -->
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-4 gap-12 mb-16">
+          
+          <!-- Brand -->
+          <div class="md:col-span-1 fade-in-up" data-once="true">
+            <a href="#home" class="text-2xl font-bold inline-block mb-4">
+              <span class="text-foreground">Black</span>
+              <span class="gradient-text"> Burger</span>
+            </a>
+            <p class="text-muted-foreground text-sm leading-relaxed">
+              Hambúrgueres artesanais premium com ingredientes selecionados e sabor incomparável.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="fade-in-up delay-100" data-once="true">
+            <h4 class="text-foreground font-semibold mb-4">Links Rápidos</h4>
+            <ul class="space-y-3">
+              <li><a href="#home" class="text-muted-foreground hover:text-primary transition-colors text-sm">Home</a></li>
+              <li><a href="#menu" class="text-muted-foreground hover:text-primary transition-colors text-sm">Cardápio</a></li>
+              <li><a href="#burgers" class="text-muted-foreground hover:text-primary transition-colors text-sm">Burgers</a></li>
+              <li><a href="#delivery" class="text-muted-foreground hover:text-primary transition-colors text-sm">Delivery</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="fade-in-up delay-200" data-once="true">
+            <h4 class="text-foreground font-semibold mb-4">Contato</h4>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-muted-foreground text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-primary flex-shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Rua Gastronômica, 123 - São Paulo</span>
+              </li>
+              <li class="flex items-center gap-3 text-muted-foreground text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-primary flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>(11) 99999-9999</span>
+              </li>
+              <li class="flex items-center gap-3 text-muted-foreground text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-primary flex-shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>contato@blackburger.com.br</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Social -->
+          <div class="fade-in-up delay-300" data-once="true">
+            <h4 class="text-foreground font-semibold mb-4">Redes Sociais</h4>
+            <div class="flex gap-4">
+              <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-90" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-90" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-90" aria-label="Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 fade-in delay-400" data-once="true">
+          <p class="text-muted-foreground text-sm">
+            © 2026 Black Burger. Todos os direitos reservados.
+          </p>
+          <p class="text-muted-foreground text-sm">
+            Feito com <span class="text-primary">♥</span> para amantes de burger
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Main Script -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+/* css/responsive.css */
+/* Tailwind already handles most responsiveness via classes, 
+   but this file is here to fulfill the required structure and 
+   allow custom media queries if needed later. */
+
+@media (max-width: 768px) {
+  /* Fixes specific to mobile */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Fixes specific to tablet */
+}
